@@ -1,17 +1,19 @@
 #include "Vector.h"
 #include <iostream>
+#include <typeinfo>
 
 using namespace std;
 
-Vector v(4);
+Vector v(1);
 
 void menu() {
   int inp;
-  cout << "Выберите пункт меню:" << endl;
+  cout << endl << "Выберите пункт меню:" << endl;
   cout << "1: Вывести имя класса" << endl;
   cout << "2: Сырое имя файла" << endl;
   cout << "3: Hash code" << endl;
-  cout << "4: Выход" << endl;
+  cout << "4: Размер" << endl;
+  cout << "0: Выход" << endl;
   cin >> inp;
 
   switch (inp) {
@@ -31,6 +33,11 @@ void menu() {
     break;
   };
   case 4: {
+    cout << sizeof Vector << endl;
+    menu();
+    break;
+  };
+  case 0: {
     break;
   };
   default:
