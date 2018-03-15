@@ -3,44 +3,46 @@
 
 using namespace std;
 
-void check() {
+Vector v(4);
 
-  Vector vecl(2);
-  vecl[0] = 1;
-  vecl[1] = 2;
+void menu() {
+  int inp;
+  cout << "Выберите пункт меню:" << endl;
+  cout << "1: Вывести имя класса" << endl;
+  cout << "2: Сырое имя файла" << endl;
+  cout << "3: Hash code" << endl;
+  cout << "4: Выход" << endl;
+  cin >> inp;
 
-  Vector vecr(3, 5);
-  vecr[3] = 5;
-  vecr[4] = 7;
-  // vecr[5] = 5; // out of range
-
-  cout << "vecl: ";
-  vecl.print();
-  cout << "vecr: ";
-  vecr.print();
-  cout << "vecl len: " << vecl.getLen() << endl;
-
-  Vector sum = vecl + vecr;
-  // sum = vecl + vec3; // different length
-  cout << "sum: ";
-  sum.print();
-
-  Vector subtraction = vecr - vecl;
-  cout << "subtraction: ";
-  subtraction.print();
-
-  Vector multipl = vecr * 4;
-  cout << "multipl: ";
-  multipl.print();
-
-  Vector division = multipl / 2;
-  cout << "division: ";
-  division.print();
+  switch (inp) {
+  case 1: {
+    cout << typeid(v).name() << endl;
+    menu();
+    break;
+  };
+  case 2: {
+    cout << typeid(v).raw_name() << endl;
+    menu();
+    break;
+  };
+  case 3: {
+    cout << typeid(v).hash_code() << endl;
+    menu();
+    break;
+  };
+  case 4: {
+    break;
+  };
+  default:
+    cout << "Неверный ввод";
+    menu();
+    break;
+  }
 }
 
 int main() {
-  check();
+  setlocale(LC_ALL, "Russian");
+  menu();
 
-  system("pause");
   return 0;
 }
